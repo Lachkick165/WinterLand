@@ -87,7 +87,6 @@ public class ProgramController {
             viewController.draw(snow);
         }
     }
-
     /**
      * Aufruf mit jeder Frame
      * @param dt Zeit seit letzter Frame
