@@ -39,41 +39,16 @@ public class ProgramController {
         StreetAndLandscape street = new StreetAndLandscape(0, 400);
         viewController.draw(street);
 
-        Tree tree1 = new Tree(30, 340);
-        viewController.draw(tree1);
-
-        Tree tree2 = new Tree(90, 260);
-        viewController.draw(tree2);
-
-        Tree tree3 = new Tree(140, 300);
-        viewController.draw(tree3);
-
-        Tree tree4 = new Tree(220, 210);
-        viewController.draw(tree4);
-
-        Tree tree5 = new Tree(210, 320);
-        viewController.draw(tree5);
-
-        Tree tree6 = new Tree(500, 260);
-        viewController.draw(tree6);
-
-        Tree tree7 = new Tree(350, 350);
-        viewController.draw(tree7);
-
-        Tree tree8 = new Tree(420, 260);
-        viewController.draw(tree8);
-
-        Tree tree9 = new Tree(460, 350);
-        viewController.draw(tree9);
-
-        Tree tree10 = new Tree(500, 260);
-        viewController.draw(tree10);
-
-        Tree tree11 = new Tree(500, 260);
-        viewController.draw(tree11);
-
-        Tree tree12 = new Tree(500, 260);
-        viewController.draw(tree12);
+        SetupTree(30, 340);
+        SetupTree(90, 260);
+        SetupTree(140, 300);
+        SetupTree(220, 210);
+        SetupTree(210, 320);
+        SetupTree(500, 260);
+        SetupTree(350, 350);
+        SetupTree(420, 260);
+        SetupTree(460, 350);
+        SetupTree(500, 260);
 
         Player player = new Player(300, 530, viewController);
         viewController.draw(player);
@@ -87,20 +62,23 @@ public class ProgramController {
             viewController.draw(snow);
         }
     }
+
+    public void SetupTree(double x, double y) {
+        Tree tree = new Tree(x, y);
+        viewController.draw(tree);
+    }
+
     /**
      * Aufruf mit jeder Frame
      * @param dt Zeit seit letzter Frame
      */
     public void updateProgram(double dt) {
-        for (int i = 0; i < VariableContainer.Snowballs.size(); i++){
-            SnowBall ball = VariableContainer.Snowballs.get(i);
-            viewController.draw(ball);
-
-            // Collision Detection
+        for (int i = 0; i <= VariableContainer.snowBalls.size() - 1; i++) {
+            SnowBall ball = VariableContainer.snowBalls.get(i);
             if(CollisionDetector.circleWithRectangle(ball.getX(), ball.getY(), ball.getRadius(), Player2.getX(), Player2.getY(), Player2.getWidth(), Player2.getHeight())){
-                System.out.println("Collision");
+
+                VariableContainer.player2Colour = VariableContainer.snowballColor;
             }
-            VariableContainer.Snowballs.remove(ball);
         }
     }
 }
