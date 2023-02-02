@@ -26,15 +26,15 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
      * Außerdem gibt es jeweils eine Liste von Objekte, die gezeichnet und aktualisiert werden sollen
      * und eine Liste von Objekten, die über Eingaben informiert werden sollen
      */
-    private class Scene {
+    public class Scene {
 
-        DrawingPanel drawingPanel;
+        public DrawingPanel drawingPanel;
         ArrayList<Drawable> drawables;
         ArrayList<Interactable> interactables;
 
         Scene(ViewController viewController){
             drawingPanel = new DrawingPanel(viewController);
-            drawingPanel.setBackground(new Color(255,255,255));
+            drawingPanel.setBackground(new Color(17, 9, 122));
             drawables = new ArrayList<>();
             interactables = new ArrayList<>();
         }
@@ -84,6 +84,9 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         startProgram();
     }
 
+    public Scene getScene(int sceneindex){
+        return scenes.get(sceneindex);
+    }
     /**
      * Startet das Programm, nachdem Vorarbeiten abgeschlossen sind.
      */
@@ -122,7 +125,9 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         createScene();
         // Erzeuge ein neues Fenster zum Zeichnen
         drawFrame = new DrawFrame(my_project.Config.WINDOW_TITLE, x, y, my_project.Config.WINDOW_WIDTH, my_project.Config.WINDOW_HEIGHT, scenes.get(0).drawingPanel);
-        drawFrame.setResizable(false);
+        drawFrame.setResizable(true);
+        ImageIcon image = new ImageIcon("Bär.png");
+        drawFrame.setIconImage(image.getImage());
         showScene(0);
         // Übergibt den weiteren Programmfluss an das neue Objekt der Klasse ViewController
         if ( Config.INFO_MESSAGES) System.out.println("  > ViewController: Fenster eingerichtet. Startszene (Index: 0) angelegt.");

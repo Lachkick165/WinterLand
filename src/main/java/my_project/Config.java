@@ -1,13 +1,14 @@
 package my_project;
 
+import my_project.model.Player;
+
 /**
  * In dieser Klasse werden globale, statische Einstellungen verwaltet.
  * Die Werte können nach eigenen Wünschen angepasst werden.
  */
 public class Config {
-
     // Titel des Programms (steht oben in der Fenstertitelzeile)
-    public final static String WINDOW_TITLE = "Leeres Vorlagenprojekt des KAGO-Frameworks";
+    public final static String WINDOW_TITLE = "Winterland";
 
     // Konfiguration des Standardfensters: Anzeige und Breite des Programmfensters (Width) und Höhe des Programmfensters (Height)
     public final static boolean SHOW_DEFAULT_WINDOW = true;
