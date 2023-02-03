@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import java.awt.*;
 
 public class Player extends InteractiveGraphicalObject {
-
     ViewController viewController;
     int velocity = 100;
     double r = 21;
@@ -51,8 +50,11 @@ public class Player extends InteractiveGraphicalObject {
                 r+=10*dt;
             }
         }
-        if (x >= 600 - r || x <= 0 + r || y >= 589 - r || y <= 0 + r) {
+        if (x >= 600 - r*2 || x <= 0 + r || y >= 580 - r || y <= 0 + r) {
             velocity = velocity * -1;
+        }
+        if(y>=410){
+            r = 21;
         }
     }
     public void mousePressed(MouseEvent e) {

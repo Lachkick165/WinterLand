@@ -6,6 +6,7 @@ import KAGO_framework.view.DrawTool;
 import my_project.control.ProgramController;
 import KAGO_framework.view.DrawFrame;
 import KAGO_framework.view.DrawingPanel;
+import my_project.model.player2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -119,12 +120,12 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         int x = width / 2;
         int y = height / 2;
         // Berechne die beste obere linke Ecke für das Fenster so, dass es genau mittig erscheint
-        x = x - my_project.Config.WINDOW_WIDTH / 2;
-        y = y - my_project.Config.WINDOW_HEIGHT / 2;
+        x = x - my_project.model.player2.WINDOW_WIDTH / 2;
+        y = y - my_project.model.player2.WINDOW_HEIGHT / 2;
         // Erzeuge die erste Szene
         createScene();
         // Erzeuge ein neues Fenster zum Zeichnen
-        drawFrame = new DrawFrame(my_project.Config.WINDOW_TITLE, x, y, my_project.Config.WINDOW_WIDTH, my_project.Config.WINDOW_HEIGHT, scenes.get(0).drawingPanel);
+        drawFrame = new DrawFrame(my_project.Config.WINDOW_TITLE, x, y, player2.WINDOW_WIDTH, player2.WINDOW_HEIGHT, scenes.get(0).drawingPanel);
         drawFrame.setResizable(true);
         ImageIcon image = new ImageIcon("Bär.png");
         drawFrame.setIconImage(image.getImage());

@@ -23,4 +23,19 @@ public class CollisionDetector {
         }
         return false;
     }
+    public static boolean circleCircle(double c1x, double c1y, double c1r, double c2x, double c2y, double c2r) {
+
+        // get distance between the circle's centers
+        // use the Pythagorean Theorem to compute the distance
+        double distX = c1x - c2x;
+        double distY = c1y - c2y;
+        double distance = Math.sqrt( (distX*distX) + (distY*distY) );
+
+        // if the distance is less than the sum of the circle's
+        // radii, the circles are touching!
+        if (distance <= c1r+c2r) {
+            return true;
+        }
+        return false;
+    }
 }

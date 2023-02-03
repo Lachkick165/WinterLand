@@ -4,6 +4,8 @@ import KAGO_framework.control.Drawable;
 import KAGO_framework.control.ViewController;
 import my_project.model.*;
 
+import java.awt.*;
+
 /**
  * Ein Objekt der Klasse ProgramController dient dazu das Programm zu steuern. Die updateProgram - Methode wird
  * mit jeder Frame im laufenden Programm aufgerufen.
@@ -54,12 +56,13 @@ public class ProgramController {
         viewController.draw(player);
         viewController.register(player);
 
-        Player2 = new player2(500, 500, 50, 50);
+        Player2 = new player2(500, 500, 20, 20);
         viewController.draw(Player2);
 
         for(int i = 1; i <=500; i++){
-            Snow snow = new Snow(0, 0);
-            viewController.draw(snow);
+            Snow ssll = new Snow(Math.random()*600+-100, Math.random()*-1+-629, Math.random()*3+1.5, Color.WHITE);
+            VariableContainer.snowList.add(ssll);
+            viewController.draw(ssll);
         }
     }
 
@@ -79,6 +82,14 @@ public class ProgramController {
 
                 VariableContainer.player2Colour = VariableContainer.snowballColor;
             }
+            for (int k = 0; k < VariableContainer.snowList.size(); k++){
+                Snow snowing = VariableContainer.snowList.get(k);
+                if (CollisionDetector.circleCircle(ball.getX(), ball.getY(), ball.getRadius(), snowing.getX(), snowing.getY(), snowing.getRadius())){
+
+                    snowing.setColor(VariableContainer.snowballColor);
+                }
+            }
         }
     }
 }
+

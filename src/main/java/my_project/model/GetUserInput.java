@@ -15,7 +15,7 @@ public class GetUserInput {
         }
         System.out.println("\nWhat color does the snowball should have?");
         while (true){
-            System.out.println("These are available for u [red, green, orange, black, blue, white] selected Colour: "+ selectedColour);
+            System.out.println("These are available for u [red, purple, skyblue, black, blue, white] selected Colour: "+ selectedColour);
             String colour = scanner.nextLine();
 
             switch (colour){
@@ -24,14 +24,14 @@ public class GetUserInput {
                     selectedColour = "red";
                     System.out.println("Nice choice!" +colour);
                 }
-                case "green" -> {
-                    VariableContainer.snowballColor = new Color(86, 217, 38);
-                    selectedColour = "green";
+                case "purple" -> {
+                    VariableContainer.snowballColor = new Color(138, 16, 203);
+                    selectedColour = "purple";
                     System.out.println("Nice choice!" +colour);
                 }
-                case "orange" -> {
-                    VariableContainer.snowballColor = new Color(255, 142, 16);
-                    selectedColour = "orange";
+                case "skyblue" -> {
+                    VariableContainer.snowballColor = new Color(20, 211, 211);
+                    selectedColour = "skyblue";
                     System.out.println("Nice choice!" +colour);
                 }
                 case "black" -> {

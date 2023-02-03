@@ -1,5 +1,6 @@
 package my_project.model;
 
+import KAGO_framework.control.ViewController;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
@@ -18,5 +19,9 @@ public class Tree extends GraphicalObject {
 
         drawTool.setCurrentColor(new Color(38, 70, 42));
         drawTool.drawFilledTriangle(x - 10, y, x + 30, y, x + 10, y - 100);
+    }
+
+    public void update(double dt) {
+
     }
 }
