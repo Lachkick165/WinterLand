@@ -14,6 +14,8 @@ public class ProgramController {
 
     //Attribute
     player2 Player2;
+    Points points;
+    GetUserInput getUserInput;
 
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
@@ -64,13 +66,21 @@ public class ProgramController {
             VariableContainer.snowList.add(ssll);
             viewController.draw(ssll);
         }
+
+        points = new Points(0);
+        viewController.draw(points);
+
+        getUserInput = new GetUserInput();
+        Thread thread = new Thread(()->{
+            getUserInput.getUserInput();
+        });
+        thread.start();
     }
 
     public void SetupTree(double x, double y) {
         Tree tree = new Tree(x, y);
         viewController.draw(tree);
     }
-
     /**
      * Aufruf mit jeder Frame
      * @param dt Zeit seit letzter Frame
@@ -87,9 +97,12 @@ public class ProgramController {
                 if (CollisionDetector.circleCircle(ball.getX(), ball.getY(), ball.getRadius(), snowing.getX(), snowing.getY(), snowing.getRadius())){
 
                     snowing.setColor(VariableContainer.snowballColor);
+                    points.setPoints(points.getPoints()+1);
                 }
             }
         }
+
+        getUserInput.setMegaPoints(points.getMegaPoints());
     }
 }
 

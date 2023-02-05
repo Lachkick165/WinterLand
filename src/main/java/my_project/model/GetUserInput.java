@@ -5,7 +5,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
 public class GetUserInput {
-    public static void getUserInput() {
+    static int megaPoints;
+    public void setMegaPoints(int megaPoints) {
+        this.megaPoints = megaPoints;
+    }
+
+    public void getUserInput() {
         Scanner scanner = new Scanner(System.in);
         String selectedColour = "";
         try {
@@ -15,7 +20,12 @@ public class GetUserInput {
         }
         System.out.println("\nWhat color does the snowball should have?");
         while (true){
-            System.out.println("These are available for u [red, purple, skyblue, black, blue, white] selected Colour: "+ selectedColour);
+            if (megaPoints <= 10){
+                System.out.println("These are available for u [red, purple, skyblue, black, blue, white] selected Colour: "+ selectedColour);
+            }else{
+                System.out.println("These are available for u [red, purple, skyblue, black, blue, white, Lowball] selected Colour: "+ selectedColour);
+            }
+
             String colour = scanner.nextLine();
 
             switch (colour){
@@ -47,6 +57,11 @@ public class GetUserInput {
                 case "white" -> {
                     VariableContainer.snowballColor = new Color(255, 255, 255);
                     selectedColour = "white";
+                    System.out.println("Nice choice!" +colour);
+                }
+                case "Lowball" -> {
+                    VariableContainer.snowballColor = new Color(150, 95, 10);
+                    selectedColour = "Lowball";
                     System.out.println("Nice choice!" +colour);
                 }
                 default -> System.out.println("That's not a colour");
