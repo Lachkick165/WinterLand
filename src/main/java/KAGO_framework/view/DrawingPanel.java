@@ -30,6 +30,7 @@ public class DrawingPanel extends JPanel  {
         drawTool = new DrawTool();
     }
 
+
     /**
      * Zeichnen aller registrierten Objekte
      */

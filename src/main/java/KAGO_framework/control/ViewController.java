@@ -20,7 +20,6 @@ import java.util.Iterator;
  * Vorgegebene Klasse des Frameworks. Modifikation auf eigene Gefahr.
  */
 public class ViewController implements ActionListener, KeyListener, MouseListener, MouseMotionListener {
-
     /**
      * Die innere Klasse kapselt jeweils eine Szene.
      * Diese besteht aus einem Panel auf das gezeichnet wird und das Tastatur- und Mauseingaben empfängt.

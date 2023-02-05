@@ -65,7 +65,7 @@ public class Player extends InteractiveGraphicalObject {
             double dirX = Math.cos(angle);
             double dirY = Math.sin(angle);
 
-            SnowBall s = new SnowBall(x,y - 23,dirX,dirY,y/50);
+            SnowBall s = new SnowBall(x,y - r*2.3,dirX,dirY,r/2);
             VariableContainer.snowBalls.add(s);
             viewController.draw(s);
         }
