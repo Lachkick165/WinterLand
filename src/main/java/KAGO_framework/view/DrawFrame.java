@@ -1,8 +1,10 @@
 package KAGO_framework.view;
 
 import KAGO_framework.Config;
+import KAGO_framework.control.ViewController;
 
 import javax.swing.*;
+import java.awt.*;
 
 /** Entspricht einem Fenster, das DrawingPanels beinhalten kann.
  *  Vorgegebene Klasse des Frameworks. Modifikation auf eigene Gefahr.
@@ -27,7 +29,6 @@ public class DrawFrame extends JFrame {
         setLocation(x,y);
         setSize(width,height);
         setTitle(name);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         if ( Config.INFO_MESSAGES) System.out.println("  > DrawFrame: Fenster ist initialisiert.");
     }

@@ -78,7 +78,7 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         }
 
         if (!my_project.Config.SHOW_DEFAULT_WINDOW){
-            setDrawFrameVisible(false);
+            setDrawFrameVisible(true);
             if(Config.INFO_MESSAGES) System.out.println("** Achtung! Standardfenster deaktiviert => wird nicht angezeigt.). **");
         }
         startProgram();

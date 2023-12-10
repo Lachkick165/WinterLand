@@ -62,8 +62,8 @@ public class ProgramController {
         viewController.draw(Player2);
 
         for(int i = 1; i <=500; i++){
-            Snow ssll = new Snow(Math.random()*600+-100, Math.random()*-1+-629, Math.random()*3+1.5, Color.WHITE);
-            VariableContainer.snowList.add(ssll);
+            Snow ssll = new Snow(Math.random()*600+-100, Math.random()*-1+-629, Math.random()*3+1.5, Math.random()*400+230, Color.WHITE);
+            VariableContainer.snowList.append(ssll);
             viewController.draw(ssll);
         }
 
@@ -92,13 +92,15 @@ public class ProgramController {
 
                 VariableContainer.player2Colour = VariableContainer.snowballColor;
             }
-            for (int k = 0; k < VariableContainer.snowList.size(); k++){
-                Snow snowing = VariableContainer.snowList.get(k);
+            VariableContainer.snowList.toFirst();
+            while (VariableContainer.snowList.hasAccess()){
+                Snow snowing = VariableContainer.snowList.getContent();
                 if (CollisionDetector.circleCircle(ball.getX(), ball.getY(), ball.getRadius(), snowing.getX(), snowing.getY(), snowing.getRadius())){
 
                     snowing.setColor(VariableContainer.snowballColor);
                     points.setPoints(points.getPoints()+1);
                 }
+                VariableContainer.snowList.next();
             }
         }
 

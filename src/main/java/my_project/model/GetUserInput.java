@@ -21,9 +21,9 @@ public class GetUserInput {
         System.out.println("\nWhat color does the snowball should have?");
         while (true){
             if (megaPoints <= 10){
-                System.out.println("These are available for u [red, purple, skyblue, black, blue, white] selected Colour: "+ selectedColour);
+                System.out.println("These are available for u [red, purple, skyblue, black, blue, white, yellow] selected Colour: "+ selectedColour);
             }else{
-                System.out.println("These are available for u [red, purple, skyblue, black, blue, white, Lowball] selected Colour: "+ selectedColour);
+                System.out.println("These are available for u [red, purple, skyblue, black, blue, white, yellow, Lowball] selected Colour: "+ selectedColour);
             }
 
             String colour = scanner.nextLine();
@@ -62,6 +62,11 @@ public class GetUserInput {
                 case "Lowball" -> {
                     VariableContainer.snowballColor = new Color(150, 95, 10);
                     selectedColour = "Lowball";
+                    System.out.println("Nice choice!" +colour);
+                }
+                case "yellow" -> {
+                    VariableContainer.snowballColor = new Color(255, 255, 0);
+                    selectedColour = "yellow";
                     System.out.println("Nice choice!" +colour);
                 }
                 default -> System.out.println("That's not a colour");
